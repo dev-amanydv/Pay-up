@@ -6,7 +6,7 @@ export default async function Home() {
   // Fetch users from the database - server-side operation
   const users = await prisma.user.findMany();
   
-  return (
+  return (  
     <div>
       <h1 className="italic text-3xl font-bold">Hello world</h1>
       <div className="mt-6">

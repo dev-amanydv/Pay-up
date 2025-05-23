@@ -2030,6 +2030,7 @@ export namespace Prisma {
     id: number | null
     email: string | null
     name: string | null
+    number: string | null
     auth_type: $Enums.AuthType | null
   }
 
@@ -2037,6 +2038,7 @@ export namespace Prisma {
     id: number | null
     email: string | null
     name: string | null
+    number: string | null
     auth_type: $Enums.AuthType | null
   }
 
@@ -2044,6 +2046,7 @@ export namespace Prisma {
     id: number
     email: number
     name: number
+    number: number
     auth_type: number
     _all: number
   }
@@ -2061,6 +2064,7 @@ export namespace Prisma {
     id?: true
     email?: true
     name?: true
+    number?: true
     auth_type?: true
   }
 
@@ -2068,6 +2072,7 @@ export namespace Prisma {
     id?: true
     email?: true
     name?: true
+    number?: true
     auth_type?: true
   }
 
@@ -2075,6 +2080,7 @@ export namespace Prisma {
     id?: true
     email?: true
     name?: true
+    number?: true
     auth_type?: true
     _all?: true
   }
@@ -2169,6 +2175,7 @@ export namespace Prisma {
     id: number
     email: string
     name: string | null
+    number: string | null
     auth_type: $Enums.AuthType
     _count: MerchantCountAggregateOutputType | null
     _avg: MerchantAvgAggregateOutputType | null
@@ -2195,6 +2202,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     name?: boolean
+    number?: boolean
     auth_type?: boolean
   }, ExtArgs["result"]["merchant"]>
 
@@ -2202,6 +2210,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     name?: boolean
+    number?: boolean
     auth_type?: boolean
   }, ExtArgs["result"]["merchant"]>
 
@@ -2209,6 +2218,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     name?: boolean
+    number?: boolean
     auth_type?: boolean
   }, ExtArgs["result"]["merchant"]>
 
@@ -2216,10 +2226,11 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     name?: boolean
+    number?: boolean
     auth_type?: boolean
   }
 
-  export type MerchantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "auth_type", ExtArgs["result"]["merchant"]>
+  export type MerchantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "number" | "auth_type", ExtArgs["result"]["merchant"]>
 
   export type $MerchantPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Merchant"
@@ -2228,6 +2239,7 @@ export namespace Prisma {
       id: number
       email: string
       name: string | null
+      number: string | null
       auth_type: $Enums.AuthType
     }, ExtArgs["result"]["merchant"]>
     composites: {}
@@ -2655,6 +2667,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Merchant", 'Int'>
     readonly email: FieldRef<"Merchant", 'String'>
     readonly name: FieldRef<"Merchant", 'String'>
+    readonly number: FieldRef<"Merchant", 'String'>
     readonly auth_type: FieldRef<"Merchant", 'AuthType'>
   }
     
@@ -3051,6 +3064,7 @@ export namespace Prisma {
     id: 'id',
     email: 'email',
     name: 'name',
+    number: 'number',
     auth_type: 'auth_type'
   };
 
@@ -3206,6 +3220,7 @@ export namespace Prisma {
     id?: IntFilter<"Merchant"> | number
     email?: StringFilter<"Merchant"> | string
     name?: StringNullableFilter<"Merchant"> | string | null
+    number?: StringNullableFilter<"Merchant"> | string | null
     auth_type?: EnumAuthTypeFilter<"Merchant"> | $Enums.AuthType
   }
 
@@ -3213,6 +3228,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
+    number?: SortOrderInput | SortOrder
     auth_type?: SortOrder
   }
 
@@ -3223,6 +3239,7 @@ export namespace Prisma {
     OR?: MerchantWhereInput[]
     NOT?: MerchantWhereInput | MerchantWhereInput[]
     name?: StringNullableFilter<"Merchant"> | string | null
+    number?: StringNullableFilter<"Merchant"> | string | null
     auth_type?: EnumAuthTypeFilter<"Merchant"> | $Enums.AuthType
   }, "id" | "email">
 
@@ -3230,6 +3247,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
+    number?: SortOrderInput | SortOrder
     auth_type?: SortOrder
     _count?: MerchantCountOrderByAggregateInput
     _avg?: MerchantAvgOrderByAggregateInput
@@ -3245,6 +3263,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Merchant"> | number
     email?: StringWithAggregatesFilter<"Merchant"> | string
     name?: StringNullableWithAggregatesFilter<"Merchant"> | string | null
+    number?: StringNullableWithAggregatesFilter<"Merchant"> | string | null
     auth_type?: EnumAuthTypeWithAggregatesFilter<"Merchant"> | $Enums.AuthType
   }
 
@@ -3304,6 +3323,7 @@ export namespace Prisma {
   export type MerchantCreateInput = {
     email: string
     name?: string | null
+    number?: string | null
     auth_type: $Enums.AuthType
   }
 
@@ -3311,12 +3331,14 @@ export namespace Prisma {
     id?: number
     email: string
     name?: string | null
+    number?: string | null
     auth_type: $Enums.AuthType
   }
 
   export type MerchantUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    number?: NullableStringFieldUpdateOperationsInput | string | null
     auth_type?: EnumAuthTypeFieldUpdateOperationsInput | $Enums.AuthType
   }
 
@@ -3324,6 +3346,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    number?: NullableStringFieldUpdateOperationsInput | string | null
     auth_type?: EnumAuthTypeFieldUpdateOperationsInput | $Enums.AuthType
   }
 
@@ -3331,12 +3354,14 @@ export namespace Prisma {
     id?: number
     email: string
     name?: string | null
+    number?: string | null
     auth_type: $Enums.AuthType
   }
 
   export type MerchantUpdateManyMutationInput = {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    number?: NullableStringFieldUpdateOperationsInput | string | null
     auth_type?: EnumAuthTypeFieldUpdateOperationsInput | $Enums.AuthType
   }
 
@@ -3344,6 +3369,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    number?: NullableStringFieldUpdateOperationsInput | string | null
     auth_type?: EnumAuthTypeFieldUpdateOperationsInput | $Enums.AuthType
   }
 
@@ -3488,6 +3514,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    number?: SortOrder
     auth_type?: SortOrder
   }
 
@@ -3499,6 +3526,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    number?: SortOrder
     auth_type?: SortOrder
   }
 
@@ -3506,6 +3534,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    number?: SortOrder
     auth_type?: SortOrder
   }
 

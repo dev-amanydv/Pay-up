@@ -132,6 +132,7 @@ exports.Prisma.MerchantScalarFieldEnum = {
   id: 'id',
   email: 'email',
   name: 'name',
+  number: 'number',
   auth_type: 'auth_type'
 };
 
