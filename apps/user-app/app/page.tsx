@@ -1,10 +1,11 @@
-import Image, { type ImageProps } from "next/image";
+import { Suspense } from "react";
 import { prisma } from "@repo/db/src";
+import ClientComponent from "./client-component";
 
 export default async function Home() {
-  // Fetch users from the database
+  // Fetch users from the database - server-side operation
   const users = await prisma.user.findMany();
-  console.log(users);
+  
   return (
     <div>
       <h1 className="italic text-3xl font-bold">Hello world</h1>
@@ -16,6 +17,10 @@ export default async function Home() {
           ))}
         </ul>
       </div>
+      
+      <Suspense fallback={<div>Loading balance...</div>}>
+        <ClientComponent />
+      </Suspense>
     </div>
   );
 }

@@ -1,45 +1,13 @@
-// Simple env loader to ensure DATABASE_URL is available
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+"use strict";
 
-// Get the directory name in ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// Simple placeholder for environment variables in client context
+// Next.js handles .env files automatically, so this is just for clarity
 
-// Function to load environment variables from .env file
-function loadEnvFile() {
-  try {
-    const envPath = path.resolve(__dirname, '../.env');
-    
-    if (fs.existsSync(envPath)) {
-      const envContent = fs.readFileSync(envPath, 'utf8');
-      const envVars = envContent.split('\n').filter(Boolean);
-      
-      for (const line of envVars) {
-        const [key, ...valueParts] = line.split('=');
-        const value = valueParts.join('=').trim();
-        
-        if (key && value) {
-          const trimmedKey = key.trim();
-          // Remove quotes from the value if they exist
-          const trimmedValue = value.replace(/^["']|["']$/g, '');
-          process.env[trimmedKey] = trimmedValue;
-        }
-      }
-      
-      console.log('Loaded DATABASE_URL:', process.env.DATABASE_URL);
-    } else {
-      console.warn('No .env file found at', envPath);
-    }
-  } catch (error) {
-    console.error('Error loading .env file:', error);
-  }
-}
+// Using hardcoded value because Next.js will pull from .env files automatically
+const DATABASE_URL = process.env.DATABASE_URL || 
+  "postgresql://neondb_owner:npg_lCjA9xigo3PY@ep-lucky-smoke-a4bxlmh5-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require";
 
-// Load environment variables
-loadEnvFile();
+console.log('Loaded DATABASE_URL:', DATABASE_URL);
 
 // Export the DATABASE_URL to ensure it's accessible
-export const DATABASE_URL = process.env.DATABASE_URL; 
+export { DATABASE_URL }; 
